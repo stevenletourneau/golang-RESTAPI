@@ -1,7 +1,16 @@
+//app.go
+
+package main
+
+import (
+	"database/sql"
+	"github.com/gorilla/mux"
+	_ "github.com/lib/pq"
+)
 
 //struct with references to the router and database to be used
 type API struct {
-	Router *mux.router
+	Router *mux.Router
 	DB *sql.DB
 }
 
