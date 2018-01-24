@@ -5,6 +5,7 @@ package main_test
 import (
 	"os"
 	"testing"
+	"log"
 
 	"."
 )
@@ -37,12 +38,14 @@ func TestMain(m *testing.M) {
 	os.Exit(code)
 }
 
+//creates database for testing
 func createTestTable() {
 	if _, err := application.DB.Exec(tableCreationQuery); err != nil {
 		log.Fatal(err)
 	}
 }
 
+//cleans database up after testing is finished
 func cleanDatabase() {
 	application.DB.Exec("DELETE FROM classes")
 	application.DB.Exec("ALTER SEQUENCE classes_id_seq RESTART WITH 1")

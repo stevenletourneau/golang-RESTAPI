@@ -6,6 +6,8 @@ import (
 	"database/sql"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
+	"fmt"
+	"log"
 )
 
 //struct with references to the router and database to be used
