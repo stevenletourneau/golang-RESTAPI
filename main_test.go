@@ -20,10 +20,10 @@ CONSTRAINT classes_pkey PRIMARY KEY (id)
 )`
 
 //represents the application we are going to test
-var application main.App
+var application main.API
 
 func TestMain(m *testing.M) {
-	application = main.App{}
+	application = main.API{}
 	application.Initialize(
 		os.Getenv("TEST_DB_USERNAME"),
 		os.Getenv("TEST_DB_PASSWORD"),
