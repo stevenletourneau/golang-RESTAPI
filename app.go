@@ -16,7 +16,17 @@ type API struct {
 
 //need method to initialize and run the API
 //Initialize uses database information
-func (a *App) Initialize(user, password, dbname string) {}
+func (application *App) Initialize(user, password, dbname string) {
+	connectionString := fmt.Sprintf("user=%s password=%s dbname=%s", user, password, dbname)
+	
+	var err error
+	application.DB, err = sql.Open("postgres", connectionString)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	application.Router = mux.NewRouter()
+}
 
 //Run starts the API
 func (a *App) Run(addr string) {}
